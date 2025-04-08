@@ -6,7 +6,8 @@
 #endif
 using namespace std;
 
-void inser() {
+unsigned long long int inser() {
+  unsigned long long int swapCounter = 0;
   cout << "insertionSort, ";
   ofstream out;
   out.open("./sort/insertionSort/out.txt");
@@ -27,6 +28,7 @@ void inser() {
       int temp = a[k - 1];
       a[k - 1] = a[k];
       a[k] = temp;
+      swapCounter++;
       k--;
     }
   }
@@ -41,4 +43,5 @@ void inser() {
       count = outlf;
     }
   }
+  return swapCounter;
 }

@@ -4,10 +4,9 @@
 #endif
 using namespace std;
 
-void merge(vector<int> &arr, int lo, int mid, int hi) {
+void merge(vector<int> &arr, int lo, int mid, int hi, unsigned long long int &swapCounter) {
   vector<int> left(arr.begin() + lo, arr.begin() + mid + 1);
   vector<int> right(arr.begin() + mid + 1, arr.begin() + hi + 1);
-
   int i = 0, j = 0, k = lo;
   while (i < left.size() && j < right.size()) {
     if (left[i] < right[j]) {
@@ -15,25 +14,29 @@ void merge(vector<int> &arr, int lo, int mid, int hi) {
     } else {
       arr[k++] = right[j++];
     }
+    swapCounter++;
   }
   while (i < left.size()) {
     arr[k++] = left[i++];
+    swapCounter++;
   }
   while (j < right.size()) {
     arr[k++] = right[j++];
+    swapCounter++;
   }
 }
 
-void mergeSort(vector<int> &arr, int lo, int hi) {
+void mergeSort(vector<int> &arr, int lo, int hi, unsigned long long int &swapCounter) {
   if (lo < hi) {
     int mid = lo + (hi - lo) / 2;
-    mergeSort(arr, lo, mid);
-    mergeSort(arr, mid + 1, hi);
-    merge(arr, lo, mid, hi);
+    mergeSort(arr, lo, mid, swapCounter);
+    mergeSort(arr, mid + 1, hi, swapCounter);
+    merge(arr, lo, mid, hi, swapCounter);
   }
 }
 
-void mergeS() {
+unsigned long long int mergeS() {
+  unsigned long long int swapCounter = 0;
   cout << "mergeSort, ";
   ofstream out;
   out.open("./sort/mergeSort/out.txt");
@@ -45,7 +48,7 @@ void mergeS() {
   vector<int> a;
   readFile(a);
 
-  mergeSort(a, 0, a.size() - 1);
+  mergeSort(a, 0, a.size() - 1, swapCounter);
 
   int count = outlf;
   for (int i = 0; i < a.size(); i++) {
@@ -57,6 +60,7 @@ void mergeS() {
       count = outlf;
     }
   }
+  return swapCounter;
 }
 
 // int main() {

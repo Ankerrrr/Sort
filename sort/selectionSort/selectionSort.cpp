@@ -5,7 +5,8 @@
 // move minimal to left
 using namespace std;
 
-void selectionSort() {
+unsigned long long int selectionSort() {
+  unsigned long long int swapCounter = 0;
   cout << "SelectionSort, ";
   ofstream out;
   out.open("./sort/selectionSort/out.txt");
@@ -26,6 +27,7 @@ void selectionSort() {
         a[j] = a[i];
         a[i] = temp;
         min = a[i];
+        swapCounter++;
       }
     }
   }
@@ -40,6 +42,7 @@ void selectionSort() {
     }
   }
   out.close();
+  return swapCounter;
 }
 
 // int main() {

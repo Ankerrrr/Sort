@@ -4,7 +4,7 @@
 #endif
 using namespace std;
 
-void heapify(vector<int> &a, int n, int i) {
+void heapify(vector<int> &a, int n, int i, unsigned long long int &swapCounter) {
   int largest = i;
   int left = 2 * i + 1;
   int right = 2 * i + 2;
@@ -18,23 +18,26 @@ void heapify(vector<int> &a, int n, int i) {
 
   if (largest != i) {
     swap(a[largest], a[i]);
-    heapify(a, n, largest);
+    swapCounter++;
+    heapify(a, n, largest, swapCounter);
   }
 }
 
-void heapSort(vector<int> &a) {
+void heapSort(vector<int> &a, unsigned long long int &swapCounter) {
   int n = a.size();
   for (int i = n / 2 - 1; i >= 0; i--) {
-    heapify(a, n, i);
+    heapify(a, n, i, swapCounter);
   }
 
   for (int i = n - 1; i > 0; i--) {
     swap(a[i], a[0]);
-    heapify(a, i, 0);
+    swapCounter++;
+    heapify(a, i, 0, swapCounter);
   }
 }
 
-void heap() {
+unsigned long long int heap() {
+  unsigned long long int swapCounter = 0;
   cout << "heapSort, ";
   ofstream out;
   out.open("./sort/HeapSort/out.txt");
@@ -46,7 +49,7 @@ void heap() {
   vector<int> a;
   readFile(a);
 
-  heapSort(a);
+  heapSort(a, swapCounter);
 
   int count = 10;
   for (int i = 0; i < a.size(); i++) {
@@ -58,6 +61,7 @@ void heap() {
       count = 10;
     }
   }
+  return swapCounter;
 }
 
 // int main() {
