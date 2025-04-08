@@ -1,6 +1,6 @@
 # sort 資料結構作業
 
-測試各個 SORT 的執行時間，包含以下
+測試各個 SORT 的執行時間，包含以下喔
 
 > bouble, heap, insertion, merge, quick, selection
 
