@@ -161,3 +161,7 @@ quick 略優 Heap 優於 Merge 大優於 Inesrtion 優於 selection 大大優於
 | Insertion Sort | O(n²)          |
 | Selection Sort | O(n²)          |
 | Bubble Sort    | O(n²)          |
+
+## 心得
+
+這個作業很好玩，我們都學到了很多!!
