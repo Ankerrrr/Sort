@@ -11,7 +11,8 @@
         "resource/generateTestDat.cpp",
         "sort/ReadFile.cpp",
         "-o",
-        "${fileDirname}\\RunSort(RunThisCode).exe"
+        "${fileDirname}\\RunSort(RunThisCode).exe",
+        "-lpsapi"
       ],
       "options": {
         "cwd": "${fileDirname}"
