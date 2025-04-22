@@ -11,9 +11,9 @@
 using namespace std;
 using namespace std::chrono;
 
-#define testCase 100000
+#define testCase 1000
 #define testRange 5000
-#define loop 1
+#define loop 50
 
 void recordTime(vector<double> &time, vector<unsigned long long int> &count, unsigned long long int (*func)()) {
   auto start = high_resolution_clock::now();

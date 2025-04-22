@@ -10,7 +10,29 @@
 
 ## 說明
 
-RunCode 是一個主程式，他 include 了上列六種 Sort 的 cpp，並且執行後會在他的下方產生 `out.txt`，dat 則是 resource 資料夾裡面的 `dat.txt` 存放，會由**generateTestDat** 產生亂數至 dat.txt 供排序使用，再由`ReadFile` cpp 讀取 dat.txt 的亂數檔案到各個 sort method
+主程式：RunCode
+
+    包含六種排序法的 .cpp 檔案（例如：BubbleSort.cpp、QuickSort.cpp 等）。
+
+    負責整體流程的執行與排序方法的呼叫。
+
+    執行後會在主程式目錄下產生輸出檔案 out.txt。
+
+資料來源：resource/dat.txt
+
+    存放待排序的亂數資料。
+
+    由 generateTestDat 自動產生亂數並寫入 dat.txt。
+
+資料讀取：ReadFile.cpp
+
+    負責讀取 dat.txt 中的資料。
+
+    將亂數資料讀入記憶體，提供給各種排序方法使用。
+
+> [!NOTE]
+>
+> - 程式模組化
 
 ## 程式架構
 
